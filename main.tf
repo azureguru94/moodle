@@ -18,9 +18,9 @@ provider "azurerm" {
   features {}
 
   subscription_id = var.subscription_id
-  client_id       = "b783a142-5c73-49cb-a760-885ef5302414"
+  client_id       = "00000-00000-00000-00000-00000"
   client_secret   = var.client_secret
-  tenant_id       = "bee93bf4-cb8e-49bf-a074-95de74673a3d"
+  tenant_id       = "000000-00000-00000-00000"
 }
 
 # resource group 
