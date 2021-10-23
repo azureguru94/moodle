@@ -1,0 +1,49 @@
+#cloud-config
+package_upgrade: false
+packages:
+    - apache2
+    - acl
+    - mysql-client-core-8.0
+    - php
+    - libapache2-mod-php
+    - nfs-common 
+    - unzip
+    - graphviz
+    - aspell 
+    - ghostscript 
+    - clamav 
+    - php7.4-pspell 
+    - php7.4-curl 
+    - php7.4-gd 
+    - php7.4-intl 
+    - php7.4-mysql 
+    - php7.4-xml 
+    - php7.4-xmlrpc 
+    - php7.4-ldap 
+    - php7.4-zip 
+    - php7.4-soap 
+    - php7.4-mbstring 
+    - php7.4-redis
+runcmd:
+  - sudo -s
+  - systemctl enable apache2 
+  - mkdir /var/www/moodledata
+  - chown -R www-data:www-data /var/www/moodledata
+  - chown -R www-data:www-data /var/www/html
+  - chmod -R 777 /var/www/moodledata/*
+  - chmod -R 777 /var/www/html/
+  - systemctl restart apache2
+  - cd /root
+  - wget https://download.moodle.org/stable311/moodle-latest-311.zip
+  - cp moodle-latest-311.zip /var/www/html/
+  - cd /var/www/html/
+  - unzip moodle-latest-311.zip
+  - cp -r /var/www/html/moodle/* /var/www/html/
+  - rm index.html
+  - apt update && apt upgrade -y
+  - cd /var/www/html/lib/dml
+  - rm mysqli_native_moodle_database.php
+  - wget https://raw.githubusercontent.com/amrnagy94/moodle/main/mysqli_native_moodle_database.php
+  - systemctl restart apache2
+final_message: " Moodle is ready for installation after $UPTIME seconds , please run the installer script "
+
