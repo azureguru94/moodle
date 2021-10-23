@@ -1,10 +1,10 @@
 variable "client_secret" {
   description = "The Client Secret for the service principal"
-  default     = "-gJ7Q~jbgLAnNssIwsCjxjG7pqupccbD5m5aT"
+  default     = "0000000000000"
 }
 variable "subscription_id" {
   description = "The subscription id for the deployment"
-  default     = "1570910e-4df8-4c8f-9f43-2bf2182b8c30"
+  default     = "00000-0000-00000-000000-00000000"
 }
 
 variable "rg_name" {
