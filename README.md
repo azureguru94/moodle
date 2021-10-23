@@ -37,6 +37,8 @@ https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-cre
 Deployment Steps : 
 -------------------
 
+Modify the variables for "subscription_id & application_id & tenant_id & client_secret" with your own and make sure that the created app registration has a proper permission on the subscription 
+
 run terraform config file to deploy the infrastructure resources 
 
 After successful deployment of azure infrastructure resources you have to do the following :
